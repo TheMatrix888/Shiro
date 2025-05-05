@@ -1,0 +1,9 @@
+colorama~=0.4.6
+keyboard~=0.13.5
+requests~=2.32.3
+selenium~=4.25.0
+telebot~=0.0.5
+pillow~=11.0.0
+setuptools~=75.2.0
+cryptography~=43.0.3
+keyring~=25.4.1
