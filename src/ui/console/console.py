@@ -1,6 +1,6 @@
 from .console_object import ConsoleObject
 from .window_controller import get_console_window_controller
-
+from .cursor_control import overwrite_line
 
 class Console:
     def __init__(self, console_settings: dict):
@@ -43,3 +43,9 @@ class Console:
                     if line[console_column] == " ":
                         line[console_column] = console_object.content[object_line][object_column]
             self.buffer_new[console_line] = "".join(line)
+
+    def update(self):
+        for line in range(0, self.lines):
+            if self.buffer_old[line] != self.buffer_new[line]:
+                overwrite_line(line, self.buffer_new[line])
+                self.buffer_old[line] = self.buffer_new[line]
