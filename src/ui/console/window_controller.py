@@ -33,7 +33,7 @@ class LinuxConsoleWindowController(ConsoleWindowController):
         os.system(f"xdotool getactivewindow windowmove {x} {y}")
 
     def set_size(self, columns: int, lines: int):
-        # Expands buffer and window, doesn't work for all terminals
+        # Expands buffer and window, doesn't work for all linux terminals
         print(f"\033[8;{lines};{columns}t")
 
 
