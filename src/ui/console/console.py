@@ -24,7 +24,7 @@ class Console:
         self.buffer_new = [" " * columns for _ in range(lines)]
 
     def draw(self, x: int, y: int, console_object: ConsoleObject, overlap: bool = False):
-        for object_line, in range(0, console_object.height):
+        for object_line  in range(0, console_object.height):
             console_line = object_line + y
             if console_line < 0:
                 continue
@@ -49,3 +49,8 @@ class Console:
             if self.buffer_old[line] != self.buffer_new[line]:
                 overwrite_line(line, self.buffer_new[line])
                 self.buffer_old[line] = self.buffer_new[line]
+
+    def clear(self):
+        for line in range(0, self.lines):
+            self.buffer_new[line] = " " * self.columns
+        self.update()
